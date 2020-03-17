@@ -63,11 +63,11 @@ const addContact = (
 }
 
 //function to show contact names in a list
-const showContacts = () => {
-  for (index = 0; index < myContacts.length; index++) {
-    const name = myContacts[index].name
-    const phone = myContacts[index].phone
-    const email = myContacts[index].email
+const showContacts = contacts => {
+  for (index = 0; index < contacts.length; index++) {
+    const name = contacts[index].name
+    const phone = contacts[index].phone
+    const email = contacts[index].email
 
     console.log(`[${index + 1}]\t${name}\t(${phone})\t<${email}>`)
   }
