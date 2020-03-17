@@ -9,14 +9,14 @@ const myContacts = [
     tags: ["popular", "cool", "work"]
   },
   {
-    id: 1,
+    id: 2,
     name: "Betty Brave",
     phone: "+3 532 243582",
     email: "betty@brave.com",
     tags: ["beauty", "friend"]
   },
   {
-    id: 1,
+    id: 3,
     name: "Charlie Bond",
     phone: "+4 086 234532",
     email: "charlie@bond.edu",
@@ -71,4 +71,26 @@ const showContacts = () => {
 
     console.log(`[${index + 1}]\t${name}\t(${phone})\t<${email}>`)
   }
+}
+
+//function to filter tags
+const filterContacts = (...tags) => {
+  const newFiltered = []
+  const meshTags = [...tags]
+
+  for (let iteraTags = 0; iteraTags < meshTags.length; iteraTags++) {
+    for (let index = 0; index < myContacts.length; index++) {
+      let bucket = myContacts[index].tags.filter(
+        filterTag =>
+          filterTag.toLowerCase() === meshTags[iteraTags].toLowerCase()
+      )
+      if (bucket.length !== 0) {
+        newFiltered.push(myContacts[index])
+      }
+    }
+  }
+  //to avoid duplicates
+  const uniqueFiltered = new Set(newFiltered)
+
+  return Array.from(uniqueFiltered)
 }
