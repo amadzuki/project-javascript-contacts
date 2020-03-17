@@ -6,20 +6,21 @@ const myContacts = [
     email: "andy@gates.org",
     favorite: true,
     rating: 9,
-    tags: ["popular", "cool"]
+    tags: ["popular", "cool", "work"]
   },
   {
     id: 1,
     name: "Betty Brave",
     phone: "+3 532 243582",
     email: "betty@brave.com",
-    tags: ["beauty"]
+    tags: ["beauty", "friend"]
   },
   {
     id: 1,
     name: "Charlie Bond",
     phone: "+4 086 234532",
-    email: "charlie@bond.edu"
+    email: "charlie@bond.edu",
+    tags: ["colleague"]
   }
 ]
 
@@ -45,9 +46,7 @@ const addContact = (
   ...newTags
 ) => {
   const lastID = () => {
-    myContacts
-      .map(contact => contact.id)
-      .reduce((max, value) => Math.max(max, value))
+    myContacts.map(contact => contact.id).reduce((max, id) => Math.max(max, id))
   }
 
   const newContact = new contact(
